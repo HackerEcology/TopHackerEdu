@@ -1,5 +1,3 @@
-
-
 var User = require('./user').User;
 var hashPassword = require('./user').hashPassword;
 var uuid = require('node-uuid');
