@@ -6,21 +6,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="TopHacker's online edu platform">
+    <meta name="author" content="Jiannan, GongJie">
 
-    <title>Hacker Edu</title>
+    <title>Hacker Education</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.useso.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.useso.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,10 +51,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Sign Up</a>
+                        <a class="page-scroll" href="#download" onclick="document.getElementById('signup').style.display='block';document.getElementById('login').style.display='none';">Sign Up</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Log in</a>
+                        <a class="page-scroll" href="#download1" onclick="document.getElementById('signup').style.display='none';document.getElementById('login').style.display='block';">Log in</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -97,18 +95,92 @@
         </div>
     </section>
 
-    <!-- Download Section -->
-<!--     <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
+    <!-- Sign Up -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section" id="download1">
+
+            <div class="container" id="signup">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Download Grayscale</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+                    <h2>Sign Up</h2>
+                    <p>Sign up to hear from us.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-3">
+                    <form class="form-horizontal" id="tab" >
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Full Name</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputFullName" placeholder="Your Name">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                        </div>
+                      </div>
+                      <!-- <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> Remember me
+                            </label>
+                          </div>
+                        </div>
+                      </div> -->
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <button type="submit" class="btn btn-default btn-lg">Register</button>
+                        </div>
+                      </div>
+                    </form>
                 </div>
             </div>
+
+            <div class="container" style="display:none" id="login">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Log in</h2>
+                    <p>Manage your courses and progress.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-3">
+                    <form class="form-horizontal">
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                        </div>
+                      </div>
+                      <!-- <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> Remember me
+                            </label>
+                          </div>
+                        </div>
+                      </div> -->
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <button type="submit" class="btn btn-default btn-lg">Log in</button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+
+            </div>
         </div>
-    </section> -->
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="container content-section text-center">
