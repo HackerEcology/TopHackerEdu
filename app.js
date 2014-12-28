@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+
+var User = require("./api/user");
+
 var exec = require('child_process').exec;
 
 
@@ -15,7 +18,8 @@ app.get('/', function(req, res){
   res.send('hello world');
 });
 
-
+app.post('/user', User.newUser);
+app.get('/user', User.listUser);
 
 app.post('/hook',function(req, res){
     
