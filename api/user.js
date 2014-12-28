@@ -2,7 +2,7 @@ var User, mongoose, newUser, Invitation;
 var crypto = require('crypto');
 var uuid = require('node-uuid');
 var redis = require('redis');
-var mail = require('./mail');
+//var mail = require('./mail');
 
 var _ = require('lodash');
 mongoose = require("mongoose");
