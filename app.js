@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+var exec = require('child_process').exec;
 
 
 
@@ -17,6 +18,10 @@ app.get('/', function(req, res){
 
 
 app.post('/hook',function(req, res){
+    
+    exec('git pull', function (error, stdout, stderr) {
+    // output is in stdout
+    });
     res.send('got hook');
 });
 
