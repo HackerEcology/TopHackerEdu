@@ -68,6 +68,21 @@ var listUser = function(req, res, next){
     });
 };
 
+var deleteUser =  function(req, res, next){
+    User.remove({
+        _id: req.param('user_id')
+    },
+    function(err, user){
+        if(!err){
+          res.json(200,user);
+        }else{
+          res.json(500,err);
+        }
+        return;
+    });
+
+};
+
 exports.newUser = newUser;
 exports.listUser = listUser;
 
