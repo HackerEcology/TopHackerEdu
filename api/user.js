@@ -8,6 +8,7 @@ mongoose = require("mongoose");
 
 User = mongoose.model("User",{
   _id: String,
+  pass: String,
   joined_at: {type:Date, default:Date.now}
 });
 
