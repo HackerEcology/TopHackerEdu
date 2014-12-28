@@ -20,6 +20,8 @@
     <link href="http://fonts.useso.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.useso.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
+    <script src="https://leancloud.cn/scripts/lib/av-0.4.6.min.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,17 +31,33 @@
 
     <script>
         function register(){
-            email = document.getElementById("signupEmail").value;
-            fullname = document.getElementById("signupFullName").value;
-            password = document.getElementById("signupPassword").value;
-            $.ajax({
-              type: "POST",
-              url: '123.56.103.211/user',
-              data: {"email":email,"fullname":fullname,"password":password},
-              success: function(data){
-                console.log(data);
-              },
-              dataType: "json"
+            s_email = document.getElementById("signupEmail").value;
+            s_name = document.getElementById("signupFullName").value;
+            // password = document.getElementById("signupPassword").value;
+            // $.ajax({
+            //   type: "POST",
+            //   url: '123.56.103.211/user',
+            //   data: {"email":email,"fullname":fullname,"password":password},
+            //   success: function(data){
+            //     console.log(data);
+            //   },
+            //   dataType: "json"
+            // });
+            var Subscriber = AV.Object.extend("subscriber");
+            var subscriber = new Subscriber();
+            subscriber.save({email: s_email,name:s_name}, {
+                success: function(object) {
+                    // document.getElementById("signupEmail").val("");
+                    // document.getElementById("signupFullName").val("");
+
+                    // document.getElementById("subid").value="Thanks, your have subscribed from us.";
+                    $( "<p id='subsuccID'>Thanks, your have subscribed from us.</p>" ).insertAfter( "#subid" );
+                    setTimeout(function() {
+                          $("p").remove("#subsuccID");
+                          // $("#signupEmail").empty();
+                          // $("#signupFullName").empty();
+                    }, 5000);
+                }
             });
         };
         function login(){
@@ -57,6 +75,17 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+    <script type="text/JavaScript">
+        AV.initialize("scpxn32rsvtjbk24n57dqnshhnmuehng3aw4a8s0ce8vnel0", "weijy03xwwkmco2mu3hijk9f6q099pnom9bt11czpqxktbby");
+        // var TestObject = AV.Object.extend("TestObject");
+        // var testObject = new TestObject();
+        // testObject.save({foo: "bar"}, {
+        //   success: function(object) {
+        //   alert("LeanCloud works!");
+        //   }
+        // });
+    </script>
+
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
@@ -64,7 +93,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="codeswift/index.html">
                     <i class="fa fa-play-circle"></i>  <span class="light">Start</span> Coding
                 </a>
             </div>
@@ -77,11 +106,11 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download" onclick="document.getElementById('signup').style.display='block';document.getElementById('login').style.display='none';">Sign Up</a>
+                        <a class="page-scroll" href="#download1" onclick="document.getElementById('signup').style.display='block';document.getElementById('login').style.display='none';">Subscribe</a>
                     </li>
-                    <li>
+<!--                     <li>
                         <a class="page-scroll" href="#download1" onclick="document.getElementById('signup').style.display='none';document.getElementById('login').style.display='block';">Log in</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
@@ -99,7 +128,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Everyone Can Code</h1>
-                        <p class="intro-text">We believe that coding will be an important skill for most of careers on earch in a near future.</p>
+                        <p class="intro-text">We believe that coding will be an important skill that will be embedded into all careers on earch in near future.</p>
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
@@ -114,9 +143,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>About TopHacker Coding Education</h2>
-                <p>TopHacker's coding education site's mission is to help young generation in China learn coding. Coding is important because it is a straight-forward way to implement your ideas into reality, it's easy-to-learn, and it's fun!</p>
-                <p>Coding (or programming) has been embeded into every engineering field. We believe that this process is going to continue. In 5 or 10 years, coding is going to be a basic tool not only in computer/electrical engineering, but also in bio-engineering, social science, business, and even arts.</p>
-                <p>Our very first course is to teach you coding and basic computer science via Apple's new programming language Swift. <a href="#">Start Coding Now.</a></p>
+                <p>Our mission is to help young generation in China learn coding. Coding is important because it's a straight-forward way to implement your ideas into reality, it's easy-to-learn, and it's fun!</p>
+                <p>Coding (or programming) has been embeded into every engineering field at this moment. All engineers code. We believe that this process is going to continue. In 5 or 10 years, coding is going to be a basic skill in bio-engineering, social sciences, businesses and even arts.</p>
+                <p>Our very first course is to teach you to code and help you learn computer science basics via Apple's new programming language Swift. <a href="#">Start Coding Now.</a></p>
             </div>
         </div>
     </section>
@@ -127,31 +156,31 @@
 
             <div class="container" id="signup">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Sign Up</h2>
-                    <p>Sign up to hear from us.</p>
+                    <h2>Subscribe</h2>
+                    <p id="subid">Sign up to hear from us. We will send you links to our new course content.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-3">
-                    <form class="form-horizontal" id="tab" onsubmit="register(); return false;" method="POST">
+                    <form class="form-horizontal" id="tab" onsubmit="register(); return false;">
                       <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                        <label for="signupEmail" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-10">
-                          <input id="signupEmail" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                          <input id="signupEmail" type="email" class="form-control" placeholder="Email" data-bvalidator="required,email">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Full Name</label>
+                        <label for="signupFullName" class="col-sm-2 control-label">Name</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" id="signupFullName" placeholder="Your Name">
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+<!--                       <div class="form-group">
+                        <label for="signupPassword" class="col-sm-2 control-label">Password</label>
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="signupPassword" placeholder="Password">
-                        </div>
+                          <input type="password" class="form-control" id="signupPassword" placeholder="Choose a Password">
+                        </div> -->
                       </div>
                       <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
+                        <div class="col-sm-offset-1 col-sm-10">
                           <button type="submit" class="btn btn-default btn-lg">Register</button>
                         </div>
                       </div>
@@ -159,7 +188,7 @@
                 </div>
             </div>
 
-            <div class="container" style="display:none" id="login">
+<!--             <div class="container" style="display:none" id="login">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>Log in</h2>
                     <p>Manage your courses and progress.</p>
@@ -178,7 +207,7 @@
                           <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
                         </div>
                       </div>
-                      <!-- <div class="form-group">
+                      <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                           <div class="checkbox">
                             <label>
@@ -186,7 +215,7 @@
                             </label>
                           </div>
                         </div>
-                      </div> -->
+                      </div>
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                           <button type="submit" class="btn btn-default btn-lg">Log in</button>
@@ -195,7 +224,7 @@
                     </form>
                 </div>
 
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -205,7 +234,7 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Contact TopHacker Team</h2>
                 <p>Feel free to email us to provide some feedback on our courses, or to just say hello!</p>
-                <p><a href="mailto:hi@dorahacks.com">hi@dorahacks.com</a>
+                <p><a href="mailto:hi@dorahacks.com">tophacker.dev@gmail.com</a>
                 </p>
                 <ul class="list-inline banner-social-buttons">
                     <li>
