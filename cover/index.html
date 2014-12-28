@@ -29,10 +29,27 @@
 
     <script>
         function register(){
-
+            email = document.getElementById("signupEmail").value;
+            fullname = document.getElementById("signupFullName").value;
+            password = document.getElementById("signupPassword").value;
+            $.ajax({
+              type: "POST",
+              url: '123.56.103.211/user',
+              data: {"email":email,"fullname":fullname,"password":password},
+              success: function(data){
+                console.log(data);
+              },
+              dataType: "json"
+            });
         };
         function login(){
-
+            // $.ajax({
+            //   type: "POST",
+            //   url: '123.56.103.211/login',
+            //   data: {},
+            //   success: success,
+            //   dataType: dataType
+            // });
         };
     </script>
 
@@ -114,23 +131,23 @@
                     <p>Sign up to hear from us.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-3">
-                    <form class="form-horizontal" id="tab" action="123.56.103.211:3001/user" method="post">
+                    <form class="form-horizontal" id="tab" onsubmit="register(); return false;" method="POST">
                       <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                          <input id="signupEmail" type="email" class="form-control" id="inputEmail3" placeholder="Email">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Full Name</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputFullName" placeholder="Your Name">
+                          <input type="text" class="form-control" id="signupFullName" placeholder="Your Name">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                          <input type="password" class="form-control" id="signupPassword" placeholder="Password">
                         </div>
                       </div>
                       <div class="form-group">
@@ -148,7 +165,7 @@
                     <p>Manage your courses and progress.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-3">
-                    <form class="form-horizontal" onsubmit="login();return false;" method="post">
+                    <form class="form-horizontal" onsubmit="login(); return false;" method="post">
                       <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-10">
