@@ -4,5 +4,3 @@ $(document).ready(function() {
     $('#products .item').addClass('grid-group-item');});
 });
 
-var app = angular.module('IdeaBoard',['akoenig.deckgrid','btford.modal','ngSanitize','ngRoute']);
-
